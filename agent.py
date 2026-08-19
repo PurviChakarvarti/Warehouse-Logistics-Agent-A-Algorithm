@@ -6,12 +6,6 @@ Scenario:
 An autonomous forklift picks up a package and delivers it to a
 designated loading bay in a grid warehouse containing static shelf
 (obstacle) cells.
-
-Run:
-    python agent.py
-
-Requires:
-    pip install matplotlib numpy
 """
 
 import heapq
@@ -21,7 +15,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # ------------------------------------------------------------------
-# 1. WAREHOUSE GRID DEFINITION
+# WAREHOUSE GRID DEFINITION
 #    0 = free cell, 1 = shelf / obstacle
 # ------------------------------------------------------------------
 GRID = [
@@ -45,14 +39,14 @@ COLS = len(GRID[0])
 
 
 # ------------------------------------------------------------------
-# 2. HEURISTIC: MANHATTAN DISTANCE  h(n) = |x1-x2| + |y1-y2|
+# HEURISTIC: MANHATTAN DISTANCE  h(n) = |x1-x2| + |y1-y2|
 # ------------------------------------------------------------------
 def manhattan(a, b):
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 
 # ------------------------------------------------------------------
-# 3. A* SEARCH
+# A* SEARCH
 # ------------------------------------------------------------------
 def neighbors(node):
     r, c = node
@@ -101,7 +95,7 @@ def a_star(start, goal):
 
 
 # ------------------------------------------------------------------
-# 4. RUN SEARCH + LOG RESULTS
+# RUN SEARCH + LOG RESULTS
 # ------------------------------------------------------------------
 print("=" * 60)
 print("AI Express Hackathon - Track 1: Warehouse Logistics Agent")
@@ -126,7 +120,7 @@ print("=" * 60)
 
 
 # ------------------------------------------------------------------
-# 5. MATPLOTLIB ANIMATION
+# MATPLOTLIB ANIMATION
 # ------------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(7, 7))
 grid_np = np.array(GRID)
